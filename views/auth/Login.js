@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, Image, TextInput, TouchableOpacity } from "reac
 import logo from '../../assets/images/logo-horizontal-white.png';
 import ActionButton from '../../components/ActionButton';
 
-export default function Login() {
+export default function Login({ navigation }) {
   return (
     <View style={style.container}>
       <View style={style.top}>
@@ -14,12 +14,12 @@ export default function Login() {
       <View style={style.center}>
         <View style={style.label}>
           <Text style={style.input_desc}>Email <Text style={{color: '#FF6363'}}>*</Text>:</Text>
-          <TextInput placeholder="example@email.com.br" style={style.input} placeholderTextColor="#50515F" />
+          <TextInput placeholder="example@email.com.br" style={style.input} placeholderTextColor="#5C6A7E" />
         </View>
 
         <View style={style.label_nomargin}>
           <Text style={style.input_desc}>Senha <Text style={{color: '#FF6363'}}>*</Text>:</Text>
-          <TextInput placeholder="*********" style={style.input} placeholderTextColor="#50515F" />
+          <TextInput placeholder="*********" style={style.input} placeholderTextColor="#5C6A7E" secureTextEntry={true} />
         </View>
 
         <TouchableOpacity style={style.forgot}><Text style={style.forgot_text}>Esqueci minha senha</Text></TouchableOpacity>
@@ -27,7 +27,7 @@ export default function Login() {
 
       <View style={style.bottom}>
         <ActionButton text="Entrar" />
-        <TouchableOpacity style={style.create_account}><Text style={style.create_account_text}>Ainda não tenho uma conta</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => { navigation.navigate('auth.create.intro')}} style={style.create_account}><Text style={style.create_account_text}>Ainda não tenho uma conta</Text></TouchableOpacity>
       </View>
     </View>
   )
@@ -68,12 +68,13 @@ const style = StyleSheet.create({
 
   desc: {
     color: '#A6A9C6',
-    marginBottom: 40
+    marginBottom: 40,
+    fontFamily: 'SourceSansPro_400Regular'
   },
 
   label: {
     width: '100%',
-    marginBottom: 20
+    marginBottom: 20,
   },
 
   label_nomargin: {
@@ -88,13 +89,16 @@ const style = StyleSheet.create({
   },
 
   forgot_text: {
-    color: '#9495A5'
+    color: '#9495A5',
+    fontFamily: 'SourceSansPro_400Regular'
   },
 
   input_desc: {
     color: '#FFF',
     marginLeft: 25,
-    marginBottom: 5
+    marginBottom: 5,
+    fontSize: 15,
+    fontFamily: 'SourceSansPro_400Regular'
   },
 
   input: {
@@ -103,7 +107,8 @@ const style = StyleSheet.create({
     paddingHorizontal: 25,
     backgroundColor: "#3C3E4E",
     borderRadius: 500,
-    color: "#FFF"
+    color: "#FFF",
+    fontFamily: 'SourceSansPro_400Regular'
   },
 
   create_account: {
