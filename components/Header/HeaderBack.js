@@ -2,7 +2,7 @@ import { StyleSheet, TouchableOpacity, Image } from "react-native";
 
 import { useNavigation } from '@react-navigation/native';
 
-import Back from '../assets/images/icons/back.png';
+import Back from '../../assets/images/icons/back.png';
 
 export default function ActionButton() {
   const navigation = useNavigation();

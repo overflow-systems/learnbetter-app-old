@@ -1,8 +1,8 @@
-import Auth from './routes/Auth';
+import Routes from './routes/Routes';
 
 export default function App() {
 
   return (
-    <Auth />
+    <Routes />
   );
 }
