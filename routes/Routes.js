@@ -21,12 +21,28 @@ import CreateFinish from '../views/auth/CreateAccount/Finish';
 //? APP - COMPONENTS
 import Home from '../views/app/Home';
 
+import Profile from '../views/app/Profile/Profile';
+import Profile_Edit from '../views/app/Profile/Edit';
+
 //? FONTS
 import { useFonts, SourceSansPro_200ExtraLight, SourceSansPro_300Light, SourceSansPro_400Regular, SourceSansPro_600SemiBold, SourceSansPro_700Bold, SourceSansPro_900Black, } from '@expo-google-fonts/source-sans-pro';
 
 const appHeader = {
   headerStyle: { backgroundColor: '#3C3E4D' },
   headerTitle: () => (<HeaderProfile />),
+}
+
+const appHeaderBack = {
+  title: "Meu Perfil",
+  headerTitleStyle: {
+    color: "#A6A9C6",
+    fontSize: 18,
+    fontFamily: 'SourceSansPro_700Bold'
+  },
+  headerStyle: {
+    backgroundColor: '#3C3E4D',
+  },
+  headerLeft: () => (<HeaderBack />)
 }
 
 const authHeader = {
@@ -97,6 +113,18 @@ export default function Auth () {
             name="app.home"
             component={Home}
             options={appHeader}
+            />
+
+          <Stack.Screen
+            name="app.profile"
+            component={Profile}
+            options={appHeaderBack}
+            />
+
+          <Stack.Screen
+            name="app.profile.edit"
+            component={Profile_Edit}
+            options={appHeaderBack}
             />
         </Stack.Group>
       </Stack.Navigator>

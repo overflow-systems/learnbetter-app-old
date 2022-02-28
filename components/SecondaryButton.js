@@ -1,14 +1,14 @@
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import { useNavigation } from '@react-navigation/native';
 
-export default function ActionButton(props) {
+export default function SecondaryButton(props) {
   const navigation = useNavigation();
 
   return (
     <TouchableOpacity
       onPress={() => {if(props.route) navigation.navigate(props.route)}}
-      style={[style.button, { backgroundColor: props.background ?? '#2C66BC' }]}>
+      style={style.button}>
         <Text style={style.text}>{ props.text }</Text>
     </TouchableOpacity>
   )
@@ -18,7 +18,7 @@ const style = StyleSheet.create({
   button: {
     padding: 10,
     paddingVertical: 18,
-    backgroundColor: '#2C66BC',
+    backgroundColor: 'transparent',
     borderRadius: 500,
     shadowOpacity: 0,
     width: '100%',
@@ -26,9 +26,9 @@ const style = StyleSheet.create({
   },
 
   text: {
-    color: "#FFF",
+    color: "#A6A9C6",
     textAlign: 'center',
     fontSize: 18,
-    fontFamily: 'SourceSansPro_700Bold'
+    fontFamily: 'SourceSansPro_400Regular'
   }
 })

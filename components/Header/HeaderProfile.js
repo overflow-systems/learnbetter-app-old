@@ -12,7 +12,7 @@ export default function ActionButton() {
   
   return (
     <View style={style.container}>
-      <TouchableOpacity style={style.profile}>
+      <TouchableOpacity onPress={() => {navigation.navigate("app.profile")}} style={style.profile}>
         <View style={style.profile_pic}>
           <Image source={ProfilePic} style={style.pic} />
         </View>
