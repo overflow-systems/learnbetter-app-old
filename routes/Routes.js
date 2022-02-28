@@ -23,39 +23,31 @@ import Home from '../views/app/Home';
 
 import Profile from '../views/app/Profile/Profile';
 import Profile_Edit from '../views/app/Profile/Edit';
+import Notifications from '../views/app/Notifications';
 
 //? FONTS
 import { useFonts, SourceSansPro_200ExtraLight, SourceSansPro_300Light, SourceSansPro_400Regular, SourceSansPro_600SemiBold, SourceSansPro_700Bold, SourceSansPro_900Black, } from '@expo-google-fonts/source-sans-pro';
 
 const appHeader = {
   headerStyle: { backgroundColor: '#3C3E4D' },
+  headerBackVisible: false,
   headerTitle: () => (<HeaderProfile />),
 }
 
 const appHeaderBack = {
-  title: "Meu Perfil",
-  headerTitleStyle: {
-    color: "#A6A9C6",
-    fontSize: 18,
-    fontFamily: 'SourceSansPro_700Bold'
-  },
   headerStyle: {
     backgroundColor: '#3C3E4D',
   },
-  headerLeft: () => (<HeaderBack />)
+  headerBackVisible: false,
+  headerTitle: () => (<HeaderBack />),
 }
 
 const authHeader = {
-  title: "Criar Conta",
-  headerTitleStyle: {
-    color: "#A6A9C6",
-    fontSize: 18,
-    fontFamily: 'SourceSansPro_700Bold'
-  },
   headerStyle: {
     backgroundColor: '#3C3E4D',
   },
-  headerLeft: () => (<HeaderBack />)
+  headerBackVisible: false,
+  headerTitle: () => (<HeaderBack />),
 }
 
 export default function Auth () {
@@ -63,7 +55,7 @@ export default function Auth () {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='app.home'>
+      <Stack.Navigator initialRouteName='auth.login'>
         <Stack.Group>
           <Stack.Screen
             name="auth.login"
@@ -124,6 +116,12 @@ export default function Auth () {
           <Stack.Screen
             name="app.profile.edit"
             component={Profile_Edit}
+            options={appHeaderBack}
+            />
+
+          <Stack.Screen
+            name="app.notifications"
+            component={Notifications}
             options={appHeaderBack}
             />
         </Stack.Group>

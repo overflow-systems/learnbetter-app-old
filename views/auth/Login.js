@@ -26,7 +26,7 @@ export default function Login({ navigation }) {
       </View>
 
       <View style={style.bottom}>
-        <ActionButton text="Entrar" />
+        <ActionButton text="Entrar" route="app.home" />
         <TouchableOpacity onPress={() => { navigation.navigate('auth.create.intro')}} style={style.create_account}><Text style={style.create_account_text}>Ainda não tenho uma conta</Text></TouchableOpacity>
       </View>
     </View>

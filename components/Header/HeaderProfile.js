@@ -26,7 +26,7 @@ export default function ActionButton() {
           <View style={style.new} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={style.button}>
+        <TouchableOpacity onPress={() => {navigation.navigate("app.notifications")}} style={style.button}>
           <Image source={Bell} style={style.button_icon} />
         </TouchableOpacity>
       </View>
@@ -41,7 +41,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     height: 40,
     width: '100%',
-    paddingRight: 25,
+    paddingRight: 40,
   },
 
   profile: {
