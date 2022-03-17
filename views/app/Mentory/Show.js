@@ -9,7 +9,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 import CircularProgress from 'react-native-circular-progress-indicator';
 
-export default function Mentory({ navigation }) {
+export default function Mentory_Show({ navigation }) {
   return (
     <View>
       <ScrollView style={style.container}>
@@ -29,9 +29,9 @@ export default function Mentory({ navigation }) {
           <Stars avaliation={4.8} />
 
           <View style={style.desc_container}>
-            <Text style={style.desc}>
-              Sou formado no curso de Análise e Desenvolvimento de Sistemas pela Fatec de Praia Grande, já desenvolvi diversos sites e sistemas para clientes de grande e médio porte, além disso, já lecionei um curso de Programação Web para iniciantes durante 5 anos.
-            </Text>
+            <Text style={style.desc}>Sou formado no curso de Análise e Desenvolvimento de Sistemas pela Fatec de Praia Grande, já desenvolvi diversos sites e sistemas para clientes de grande e médio porte, além disso, já lecionei um curso de Programação Web para iniciantes durante 5 anos.</Text>
+
+            <Text style={style.desc}>Sou formado no curso de Análise e Desenvolvimento de Sistemas pela Fatec de Praia Grande, já desenvolvi diversos sites e sistemas para clientes de grande e médio porte, além disso, já lecionei um curso de Programação Web para iniciantes durante 5 anos.</Text>
           </View>
 
           <View style={style.data_row}>
@@ -47,25 +47,11 @@ export default function Mentory({ navigation }) {
           </View>
 
           <View style={style.buttons_row}>
-            <TouchableOpacity style={style.button}>
-              <View style={[style.button_icon_container, style.button_icon_container_sm]}>
-                <Icon name="angle-left" color="#6F728E" size={30} style={style.button_icon}/>
-              </View>
-              <Text style={style.button_text}>Anterior</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={() => {navigation.navigate("app.mentory.show")}} style={[style.button, style.button_lg]}>
+            <TouchableOpacity onPress={() => {navigation.navigate("app.mentory.proposal")}} style={[style.button, style.button_lg]}>
               <View style={[style.button_icon_container, style.button_icon_container_lg]}>
-                <Icon name="search" color="#FFF" size={30} style={style.button_icon}/>
+                <Icon name="paper-plane" color="#A6A9C6" size={24} style={style.button_icon}/>
               </View>
-              <Text style={style.button_text}>Ver detalhes</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={[style.button, style.button_sm]}>
-              <View style={[style.button_icon_container, style.button_icon_container_sm]}>
-                <Icon name="angle-right" color="#6F728E" size={30} style={style.button_icon}/>
-              </View>
-              <Text style={style.button_text}>Próximo</Text>
+              <Text style={style.button_text}>Enviar proposta</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -139,10 +125,11 @@ const style = StyleSheet.create({
   
   desc: {
     color: "#A6A9C6",
-    fontFamily: "SourceSansPro_400Regular",
     textAlign: 'center',
+    fontFamily: "SourceSansPro_400Regular",
     fontSize: 15,
-    lineHeight: 18
+    lineHeight: 18,
+    marginBottom: 10
   },
 
   data_row: {

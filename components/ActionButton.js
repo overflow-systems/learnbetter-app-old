@@ -5,10 +5,17 @@ import { useNavigation } from '@react-navigation/native';
 export default function ActionButton(props) {
   const navigation = useNavigation();
 
+  let fnct = props.press ? props.press : () => {
+    if(props.route) navigation.navigate(props.route)
+  };
+
   return (
     <TouchableOpacity
-      onPress={() => {if(props.route) navigation.navigate(props.route)}}
-      style={[style.button, { backgroundColor: props.background ?? '#2C66BC' }]}>
+      onPress={fnct}
+      style={
+        [style.button,
+        { backgroundColor: props.background ?? '#2C66BC' }]
+        }>
         <Text style={style.text}>{ props.text }</Text>
     </TouchableOpacity>
   )
