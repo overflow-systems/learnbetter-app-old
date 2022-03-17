@@ -2,9 +2,7 @@ import { StyleSheet, TouchableOpacity, Text, Image, View } from "react-native";
 
 import { useNavigation } from '@react-navigation/native';
 
-import Back from '../../assets/images/icons/back.png';
-import Message from '../../assets/images/icons/message.png';
-import Bell from '../../assets/images/icons/bell.png';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 export default function ActionButton() {
   const navigation = useNavigation();
@@ -12,7 +10,7 @@ export default function ActionButton() {
   return (
     <View style={style.container}>
       <TouchableOpacity style={style.back} onPress={() => {navigation.goBack()}}>
-        <Image style={style.back_icon} source={Back}/>
+        <Icon name="back" size={24} color="#A6A9C6" />
       </TouchableOpacity>
 
       <Text style={style.title}>Chat</Text>

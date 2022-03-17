@@ -61,7 +61,7 @@ export default function Home({ navigation }) {
         </View>
       </ScrollView>
 
-      <TouchableOpacity style={style.add_mentory}>
+      <TouchableOpacity style={style.add_mentory} onPress={() => {navigation.navigate("app.mentory")}}>
         <Image source={plus} style={style.add_mentory_icon} />
       </TouchableOpacity>
     </View>

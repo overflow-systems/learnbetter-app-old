@@ -3,6 +3,8 @@ import { Text, View, StyleSheet, TextInput, TouchableOpacity, Image, Picker } fr
 
 import { useState } from "react";
 
+import Icon from 'react-native-vector-icons/Ionicons';
+
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 //? IMAGE
@@ -12,14 +14,54 @@ import chevron from '../../../assets/images/icons/chevron.png';
 import { useNavigation } from '@react-navigation/native';
 
 export default function Intro() {
+
   let [step, setStep] = useState(0);
 
+  const [mytags, setMyTags] = useState([
+    {label: 'Informática', active: false},
+    {label: 'Programação', active: false},
+    {label: 'Ti', active: false},
+    {label: 'Design', active: false},
+    {label: 'Etc', active: false}
+  ]);
+  
   const [date, setDate] = useState(new Date());
   const [mode, setMode] = useState('date');
   const [showDate, setShowDate] = useState(false);
+  const [tags, setTags] = useState([]);
 
   //? NAVIGATION
   const navigation = useNavigation();
+
+  let myresult = [];
+
+  mytags.map((value, index) => {
+    myresult.push(
+      <TouchableOpacity
+        onPress={() => { toggleTag(value) }}
+        style={[style.tag, tags.includes(value.label) ? style.tag_active : {}]}>
+          <Text style={[style.tag_text, tags.includes(value.label) ? style.tag_text_active : {}]}>
+            {value.label}
+          </Text>
+      </TouchableOpacity>
+    );
+  })
+
+  const toggleTag = (data) => {
+    let result = tags;
+
+    if(tags.includes(data.label)) {
+      result.splice(result.indexOf(data.label), 1);
+      
+    }
+    else {
+      result.push(data.label);
+      
+    }
+
+    setTags(result)
+    console.log(tags);
+  }
 
   if(step == 0) {
     return (
@@ -46,7 +88,7 @@ export default function Intro() {
 
         <TouchableOpacity onPress={() => {setStep(step+1)}} style={style.next}>
           <Text style={style.next_desc}>Continuar</Text>
-          <Image style={style.next_icon} source={chevron} />
+          <Icon name="caret-forward" color="#5B5E79" size={20} style={style.next_icon} />
         </TouchableOpacity>
       </View>
     )
@@ -95,7 +137,7 @@ export default function Intro() {
 
         <TouchableOpacity onPress={() => {setStep(step+1)}} style={style.next}>
           <Text style={style.next_desc}>Continuar</Text>
-          <Image style={style.next_icon} source={chevron} />
+          <Icon name="caret-forward" color="#5B5E79" size={20} style={style.next_icon} />
         </TouchableOpacity>
       </View>
     )
@@ -121,7 +163,7 @@ export default function Intro() {
 
         <TouchableOpacity onPress={() => {setStep(step+1)}} style={style.next}>
           <Text style={style.next_desc}>Continuar</Text>
-          <Image style={style.next_icon} source={chevron} />
+          <Icon name="caret-forward" color="#5B5E79" size={20} style={style.next_icon} />
         </TouchableOpacity>
       </View>
     )
@@ -134,26 +176,12 @@ export default function Intro() {
         <Text style={style.desc}>Agora selecione os itens que mais se encaixam no programa de mentoria que você procura / irá oferecer</Text>
 
         <View style={style.tags_container}>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>Informática</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>Programação</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>TI</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>UX/UI</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>Web Design</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>Informática</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>Programação</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>TI</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>UX/UI</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>Web Design</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>Informática</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>Programação</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>TI</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>UX/UI</Text></TouchableOpacity>
-          <TouchableOpacity style={style.tag}><Text style={style.tag_text}>Web Design</Text></TouchableOpacity>
+          {myresult}
         </View>
 
         <TouchableOpacity onPress={() => {navigation.navigate("auth.create.finish")}} style={style.next}>
           <Text style={style.next_desc}>Continuar</Text>
-          <Image style={style.next_icon} source={chevron} />
+          <Icon name="caret-forward" color="#5B5E79" size={20} style={style.next_icon} />
         </TouchableOpacity>
       </View>
     )
@@ -235,12 +263,6 @@ const style = StyleSheet.create({
     marginRight: 14
   },
 
-  next_icon: {
-    width: 12,
-    height: 12,
-    resizeMode: 'contain'
-  },
-
   tags_container: {
     flexWrap: 'wrap',
     flexDirection: 'row',
@@ -257,9 +279,17 @@ const style = StyleSheet.create({
     marginBottom: 12
   },
 
+  tag_active: {
+    backgroundColor: '#A6A9C6'
+  },
+
   tag_text: {
     color: '#FFF',
     fontSize: 13,
     fontFamily: 'SourceSansPro_400Regular'
+  },
+
+  tag_text_active: {
+    color: '#323444'
   }
 })

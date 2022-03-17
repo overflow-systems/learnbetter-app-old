@@ -25,6 +25,8 @@ import Profile from '../views/app/Profile/Profile';
 import Profile_Edit from '../views/app/Profile/Edit';
 import Notifications from '../views/app/Notifications';
 
+import Mentory_Home from '../views/app/Mentory/Index';
+
 //? FONTS
 import { useFonts, SourceSansPro_200ExtraLight, SourceSansPro_300Light, SourceSansPro_400Regular, SourceSansPro_600SemiBold, SourceSansPro_700Bold, SourceSansPro_900Black, } from '@expo-google-fonts/source-sans-pro';
 
@@ -122,6 +124,12 @@ export default function Auth () {
           <Stack.Screen
             name="app.notifications"
             component={Notifications}
+            options={appHeaderBack}
+            />
+
+          <Stack.Screen
+            name="app.mentory"
+            component={Mentory_Home}
             options={appHeaderBack}
             />
         </Stack.Group>

@@ -4,8 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 
 import ProfilePic from '../../assets/images/profile.png';
 
-import Message from '../../assets/images/icons/message.png';
-import Bell from '../../assets/images/icons/bell.png';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 export default function ActionButton() {
   const navigation = useNavigation();
@@ -22,12 +22,12 @@ export default function ActionButton() {
 
       <View style={style.buttons_row}>
         <TouchableOpacity style={[style.button, {marginRight: 20}]}>
-          <Image source={Message} style={style.button_icon} />
+          <Icon name="chat" size={30} color="#A6A9C6" />
           <View style={style.new} />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => {navigation.navigate("app.notifications")}} style={style.button}>
-          <Image source={Bell} style={style.button_icon} />
+          <MaterialIcons name="notifications" size={30} color="#A6A9C6" />
         </TouchableOpacity>
       </View>
     </View>
@@ -73,8 +73,8 @@ const style = StyleSheet.create({
   },
 
   button: {
-    width: 24,
-    height: 24,
+    width: 32,
+    height: 32,
   },
   
   button_icon: {
@@ -89,7 +89,7 @@ const style = StyleSheet.create({
     backgroundColor: '#FFF',
     borderRadius: 500,
     position: 'absolute',
-    right: 2,
-    bottom: 2
+    right: 3,
+    bottom: 4
   }
 })

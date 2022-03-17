@@ -13,7 +13,7 @@ export default function MenteeIntro() {
       </View>
 
       <Text style={style.button_text}>Quero ser</Text>
-      <Text style={[style.button_text, style.bold]}>Mentor</Text>
+      <Text style={[style.button_text, style.bold]}>Mentorado</Text>
 
       <Text style={style.desc}>
         Quero ser mentorado em uma área de estudo específica e lorem ipsum dolor sit ammet.
@@ -23,7 +23,9 @@ export default function MenteeIntro() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac ultrices arcu. Etiam sed dui quis urna rutrum fringilla non sit amet purus. In porta ac massa a lacinia.
       </Text>
 
-      <ActionButton text="Quero ser MENTORADO" background="#2CB3BC" route="auth.create.form" />
+      <View style={style.bottom}>
+        <ActionButton text="Quero ser MENTORADO" route="auth.create.form" />
+      </View>
     </View>
   )
 }
@@ -55,12 +57,12 @@ const style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 10,
-    backgroundColor: '#2CB3BC'
+    backgroundColor: '#5B5F79'
   },
 
   icon: {
-    width: '60%',
-    height: '60%',
+    width: '50%',
+    height: '50%',
     resizeMode: 'contain',
   },
 
@@ -75,5 +77,10 @@ const style = StyleSheet.create({
     letterSpacing: .5,
     textTransform: 'uppercase',
     marginBottom: 30
+  },
+
+  bottom: {
+    width: '100%',
+    marginTop: 'auto'
   }
 })

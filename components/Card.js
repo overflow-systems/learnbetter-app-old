@@ -1,7 +1,8 @@
 import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import profile from '../assets/images/profile.png';
-import message from '../assets/images/icons/message.png';
+
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -24,7 +25,7 @@ export default function Card(props) {
       <Text style={style.card_tags}>Design, UX/UI, Photoshop, TI</Text>
       
       <View style={style.card_message}>
-        <Image style={style.card_message_icon} source={message} />
+        <Icon name="chat" size={30} style={style.card_message_icon} color="#A6A9C6" />
 
         <View>
           <Text style={style.card_message_label}>Última Mensagem</Text>

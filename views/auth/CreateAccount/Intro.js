@@ -72,21 +72,14 @@ const style = StyleSheet.create({
     borderRadius: 1000,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 10
+    marginBottom: 10,
+    backgroundColor: "#5B5F79"
   },
 
   icon: {
-    width: '60%',
-    height: '60%',
+    width: '50%',
+    height: '50%',
     resizeMode: 'contain',
-  },
-
-  icon_blue: {
-    backgroundColor: '#2C66BC'
-  },
-
-  icon_green: {
-    backgroundColor: '#2CB3BC'
   },
 
   button_text: {
